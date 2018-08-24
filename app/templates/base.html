@@ -67,7 +67,7 @@
                 source_language: sourceLang,
                 dest_language: destLang
             }).done((response) => { $(destElem).text(response['text'])
-            }).fail(() => { $(destElem).text({{ _('Sorry, translations service is not available now.') }});
+            }).fail(() => { $(destElem).text('{{ _('Sorry, translations service is not available now.') }}');
             });
         }
 

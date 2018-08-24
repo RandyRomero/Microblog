@@ -1,0 +1,79 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }} - Microblog{% else %}{{ _('Welcome to Microblog')}}{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" area-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}">Microblog</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                    <li><a href="{{ url_for('explore') }}">{{ _('Explore') }}</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_anonymous %}
+                        <li><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('user_page', username=current_user.username) }}">{{ _('Profile') }}</a></li>
+                        <li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-info" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {# application needs to be provided in the app content block #}
+            {% block app_content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+
+    <script>
+        function translate(event) {
+            let sourceElem = event.data.sourceElem;
+            let destElem = event.data.destElem;
+            let sourceLang = event.data.sourceLang;
+            let destLang = event.data.destLang;
+
+            $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+            $.post('/translate', {
+                text: $(sourceElem).text(),
+                source_language: sourceLang,
+                dest_language: destLang
+            }).done((response) => { $(destElem).text(response['text'])
+            }).fail(() => { $(destElem).text({{ _('Sorry, translations service is not available now.') }});
+            });
+        }
+
+        {#$('#translation{{ post.id }}').on('click', {sourceElem: '#post{{ post.id }}',#}
+        {#                                            destElem: '#translation{{ post.id }}',#}
+        {#                                            sourceLang: '{{ post.language }}',#}
+        {#                                            destLang: '{{ g.locale }}'}, translate);#}
+    </script>
+{% endblock %}

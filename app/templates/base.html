@@ -55,25 +55,26 @@
     {{ moment.lang(g.locale) }}
 
     <script>
-        function translate(event) {
-            let sourceElem = event.data.sourceElem;
-            let destElem = event.data.destElem;
-            let sourceLang = event.data.sourceLang;
-            let destLang = event.data.destLang;
 
+        function translate(destElem, postID) {
+            let text = destElem.text();
             $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
             $.post('/translate', {
-                text: $(sourceElem).text(),
-                source_language: sourceLang,
-                dest_language: destLang
-            }).done((response) => { $(destElem).text(response['text'])
+                text: text,
+                postID: postID
+            }).done((response) => {$(destElem).text(response['text']);
             }).fail(() => { $(destElem).text('{{ _('Sorry, translations service is not available now.') }}');
             });
         }
 
-        {#$('#translation{{ post.id }}').on('click', {sourceElem: '#post{{ post.id }}',#}
-        {#                                            destElem: '#translation{{ post.id }}',#}
-        {#                                            sourceLang: '{{ post.language }}',#}
-        {#                                            destLang: '{{ g.locale }}'}, translate);#}
+        function containerClickHandler(event) {
+            let destElem = ($(event.target).closest('td').find('p'));
+            let re = /post(\d+)/g;
+            let postID = re.exec(destElem.attr('id'))[1];
+            translate(destElem, postID)
+        }
+
+        $('.container').on('click', '.translation', containerClickHandler);
+
     </script>
 {% endblock %}

@@ -19,7 +19,6 @@ def index():
     form = PostForm()
     if form.validate_on_submit():
         language = guess_language(form.post.data)
-        # ToDo print out to a terminal what language here
         if language == 'UNKNOWN' or len(language) > 5:
             language = ''
         post = Post(body=form.post.data, author=current_user, language=language)
@@ -194,5 +193,4 @@ def translate_text():
     # content-type header 'application/json' for use with json responses.
     # The return value from jsonify() is the HTTP response that is going to be sent back to the client.
     return jsonify({'text': translate(request.form['text'],
-                                      request.form['source_language'],
-                                      request.form['dest_language'])})
+                                      request.form['postID'])})

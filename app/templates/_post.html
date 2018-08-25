@@ -12,14 +12,10 @@
                 </a>
             {% endset %}
             {{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow()) }}
-            <br>
-            <span id="post{{ post.id }}">{{ post.body }}</span>
+            <p id="post{{ post.id }}">{{ post.body }}</p>
         <!-- g.locale is language of user who sees the post -->
             {%  if post.language and post.language != g.locale %}
-                <br><br>
-                <span id="translation{{ post.id }}">
-                    <a href="#">{{ _('Translate') }}</a>
-                </span>
+                <a class="translation" id="translation{{ post.id }}" href="#">{{ _('Translate') }}</a>
             {% endif %}
         </td>
     </tr>

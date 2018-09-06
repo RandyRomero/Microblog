@@ -56,9 +56,15 @@
 
     <script>
 
+        // cache loading gif beforehand
+        // The Image() constructor creates a new HTMLImageElement instance.
+        // It is functionally equivalent to document.createElement('img').
+        let loading_gif = new Image();
+        loading_gif.src = '{{ url_for('static', filename='loading.gif') }}';
+
         function translate(destElem, postID) {
             let text = destElem.text();
-            $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+            $(destElem).html(loading_gif);
             $.post('/translate', {
                 text: text,
                 postID: postID

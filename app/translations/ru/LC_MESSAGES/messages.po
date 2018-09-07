@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-22 09:09+0300\n"
+"POT-Creation-Date: 2018-09-07 10:32+0300\n"
 "PO-Revision-Date: 2018-07-31 10:46+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -150,9 +150,25 @@ msgstr "Cбросить пароль"
 msgid "Your password has been reset."
 msgstr "Новый пароль сохранён"
 
-#: app/translate.py:9 app/translate.py:14
+#: app/translate.py:19
 msgid "Sorry, the translation service isnt't available now. Try it later."
 msgstr "Извините, перевод временно недоступен"
+
+#: app/translate.py:38
+msgid "Service is unavailable today. Please, try it tomorrow."
+msgstr "Извините, но сервис сегодня недоступен. Попробуйте завтра."
+
+#: app/translate.py:41
+msgid "Text is too long to be translated, sorry."
+msgstr "Извините, но текст слишком длинный для перевода."
+
+#: app/translate.py:44
+msgid "Sorry, the text cannot be translated."
+msgstr "Извините, этот текст не может быть переведён"
+
+#: app/translate.py:47
+msgid "Sorry, service doesn't support translation between these two languages."
+msgstr "Извините, перевод между этими языками не поддерживается."
 
 #: app/templates/404.html:4
 msgid "File Not Found"
@@ -168,14 +184,16 @@ msgstr "Произошла непредвиденная ошибка"
 
 #: app/templates/500.html:5
 msgid "The administrator has been notified. Sorry for the inconvenience!"
-msgstr "Мы уже работаем над её исправлением. Просим прощения за временное неудобство"
+msgstr ""
+"Мы уже работаем над её исправлением. Просим прощения за временное "
+"неудобство"
 
 #: app/templates/_post.html:14
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s написал %(when)s"
 
-#: app/templates/_post.html:21
+#: app/templates/_post.html:18
 msgid "Translate"
 msgstr "Перевести"
 
@@ -199,7 +217,7 @@ msgstr "Профиль"
 msgid "Logout"
 msgstr "Выйти"
 
-#: app/templates/base.html:70
+#: app/templates/base.html:72
 msgid "Sorry, translations service is not available now."
 msgstr "Извините, перевод временно недоступен"
 

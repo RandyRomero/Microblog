@@ -1,5 +1,10 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename="stylesheets/main.css") }}"
+{% endblock %}
+
 {% block title %}
     {% if title %}{{ title }} - Microblog{% else %}{{ _('Welcome to Microblog')}}{% endif %}
 {% endblock %}
@@ -68,7 +73,11 @@
             $.post('/translate', {
                 text: text,
                 postID: postID
-            }).done((response) => {$(destElem).text(response['text']);
+            }).done((response) => {
+                $(destElem).text(response['text']);
+                let promotion_link = '<p><a class="yandex-plug" href="http://translate.yandex.com/">' +
+                    'Powered by Yandex.Translate</a></p>';
+                $(destElem).after(promotion_link)
             }).fail(() => { $(destElem).text('{{ _('Sorry, translations service is not available now.') }}');
             });
         }

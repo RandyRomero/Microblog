@@ -18,5 +18,5 @@ class Config(object):
     ADMINS = ['ololo.rodriguez@gmail.com']
     POSTS_PER_PAGE = 3
     LANGUAGES = ['en', 'ru']
-    YNDX_TRANSLATOR_KEY = os.environ.get('YNDX_TRANSLATOR_KEY')
+    YNDX_TRANSLATE_KEY = os.environ.get('YNDX_TRANSLATE_KEY')
 

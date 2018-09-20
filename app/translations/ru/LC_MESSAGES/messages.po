@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-07 10:32+0300\n"
+"POT-Creation-Date: 2018-09-10 09:35+0300\n"
 "PO-Revision-Date: 2018-07-31 10:46+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -87,86 +87,82 @@ msgstr "Запросить сброс пароля"
 msgid "Your post is now live!"
 msgstr "Ваше сообщение опубликовано!"
 
-#: app/routes.py:34
-msgid "Home page"
-msgstr "В начало"
-
-#: app/routes.py:48 app/templates/base.html:22
+#: app/routes.py:47 app/templates/base.html:27
 msgid "Explore"
 msgstr "Исследовать"
 
-#: app/routes.py:61
+#: app/routes.py:60
 msgid "Congratulations, you are now a registered user!"
 msgstr "Поздравляем, вы зарегистрированы"
 
-#: app/routes.py:75
+#: app/routes.py:74
 msgid "Invalid username or password"
 msgstr "Неправильное имя пользоватяли или пароль"
 
-#: app/routes.py:83
+#: app/routes.py:82
 msgid "Sign In"
 msgstr "Войти"
 
-#: app/routes.py:119
+#: app/routes.py:118
 msgid "Your changes have been saved."
 msgstr "Изменения сохранены"
 
-#: app/routes.py:124
+#: app/routes.py:123
 msgid "Edit Profile"
 msgstr "Редактировать профиль"
 
-#: app/routes.py:132 app/routes.py:148
+#: app/routes.py:131 app/routes.py:147
 #, python-format
 msgid "User %(username)s not found"
 msgstr "Пользователь %(username)s не найден"
 
-#: app/routes.py:135
+#: app/routes.py:134
 msgid "You cannot follow yourself!"
 msgstr "Вы не можете подписаться на себя"
 
-#: app/routes.py:139
+#: app/routes.py:138
 #, python-format
 msgid "You are following %(username)s"
 msgstr "Вы подписались на %(username)s"
 
-#: app/routes.py:151
+#: app/routes.py:150
 msgid "You cannot hide from yourself"
 msgstr "Нельзя убежать от себя!"
 
-#: app/routes.py:155
+#: app/routes.py:154
 #, python-format
 msgid "You are not following %(username)s"
 msgstr "Вы отписались от %(username)s"
 
-#: app/routes.py:168
+#: app/routes.py:167
 msgid "Check your email for the instructions to reset your password"
 msgstr "Проверьте ваш почтовый ящик, туда придут инструкции по сбросу пароля"
 
-#: app/routes.py:170
+#: app/routes.py:169
 msgid "Reset Password"
 msgstr "Cбросить пароль"
 
-#: app/routes.py:184
+#: app/routes.py:183
 msgid "Your password has been reset."
 msgstr "Новый пароль сохранён"
 
-#: app/translate.py:19
+#: app/translate.py:18
 msgid "Sorry, the translation service isnt't available now. Try it later."
 msgstr "Извините, перевод временно недоступен"
 
-#: app/translate.py:38
+#: app/translate.py:43
 msgid "Service is unavailable today. Please, try it tomorrow."
 msgstr "Извините, но сервис сегодня недоступен. Попробуйте завтра."
 
-#: app/translate.py:41
+#: app/translate.py:46
 msgid "Text is too long to be translated, sorry."
 msgstr "Извините, но текст слишком длинный для перевода."
 
-#: app/translate.py:44
+#: app/translate.py:49
 msgid "Sorry, the text cannot be translated."
 msgstr "Извините, этот текст не может быть переведён"
 
-#: app/translate.py:47
+#: app/translate.py:52
 msgid "Sorry, service doesn't support translation between these two languages."
 msgstr "Извините, перевод между этими языками не поддерживается."
 
@@ -197,27 +193,31 @@ msgstr "%(username)s написал %(when)s"
 msgid "Translate"
 msgstr "Перевести"
 
-#: app/templates/base.html:4
+#: app/templates/base.html:9
 msgid "Welcome to Microblog"
 msgstr "Добро пожаловать в Microblog"
 
-#: app/templates/base.html:21
+#: app/templates/base.html:26
 msgid "Home"
 msgstr "Домой"
 
-#: app/templates/base.html:26
+#: app/templates/base.html:31
 msgid "Login"
 msgstr "Войти"
 
-#: app/templates/base.html:28
+#: app/templates/base.html:33
 msgid "Profile"
 msgstr "Профиль"
 
-#: app/templates/base.html:29
+#: app/templates/base.html:34
 msgid "Logout"
 msgstr "Выйти"
 
-#: app/templates/base.html:72
+#: app/templates/base.html:81
+msgid "Original text"
+msgstr "Оригинальный текст"
+
+#: app/templates/base.html:82
 msgid "Sorry, translations service is not available now."
 msgstr "Извините, перевод временно недоступен"
 
@@ -287,4 +287,7 @@ msgstr "Подписка"
 #: app/templates/user_page.html:20
 msgid "Unfollow"
 msgstr "Отписка"
+
+#~ msgid "Home page"
+#~ msgstr "В начало"
 

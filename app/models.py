@@ -1,12 +1,11 @@
 from datetime import datetime
-from app import db
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin  # Methods for User model to make it compatible with flask login
-from app import login
 from hashlib import md5
 from time import time
+from flask import current_app
+from flask_login import UserMixin  # Methods for User model to make it compatible with flask login
+from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
-from app import app
+from app import db, login
 
 
 # Note that I am not declaring this table as a model, like I did for the users and posts tables. Since this is an
@@ -67,13 +66,13 @@ class User(UserMixin, db.Model):
         return followed.union(own).order_by(Post.timestamp.desc())
 
     def get_reset_password_token(self, expires_in=600):
-        return jwt.encode({'reset_password': self.id, 'exp': time() + expires_in}, app.config['SECRET_KEY'],
+        return jwt.encode({'reset_password': self.id, 'exp': time() + expires_in}, current_app.config['SECRET_KEY'],
                           algorithm='HS256').decode('utf-8')
 
     @staticmethod
     def verify_reset_password_token(token):
         try:
-            user_id = jwt.decode(token, app.config['SECRET_KEY'], algorithm=['HS256'])['reset_password']
+            user_id = jwt.decode(token, current_app.config['SECRET_KEY'], algorithm=['HS256'])['reset_password']
             # You don't need to check expiration manually - it is being checked automatically
         except:
             return
@@ -92,5 +91,5 @@ class Post(db.Model):
 
 
 @login.user_loader
-def load_user(usr_id):
-    return User.query.get(int(usr_id))
+def load_user(user_id):
+    return User.query.get(int(user_id))

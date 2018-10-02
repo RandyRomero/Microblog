@@ -1,7 +1,7 @@
 import requests
+from flask import current_app
 from flask import g
 from flask_babel import _
-from app import app
 from app.models import Post
 
 
@@ -17,17 +17,17 @@ def translate(text, post_id):
 
     not_available_msg = _('Sorry, the translation service isnt\'t available now. Try it later.')
 
-    if 'YNDX_TRANSLATE_KEY' not in app.config or not app.config['YNDX_TRANSLATE_KEY']:
-        app.logger.warn('Yandex Translate API doesn\'t exist')
+    if 'YNDX_TRANSLATE_KEY' not in current_app.config or not current_app.config['YNDX_TRANSLATE_KEY']:
+        current_app.logger.warn('Yandex Translate API doesn\'t exist')
         return not_available_msg
-    api_key = app.config['YNDX_TRANSLATE_KEY']
+    api_key = current_app.config['YNDX_TRANSLATE_KEY']
     req = f'https://translate.yandex.net/api/v1.5/tr.json/translate?key={api_key}&text={text}&lang={lang_request}'
     r = requests.get(req)
     response = r.json()
 
     # Errors by yandex translator api
     if r.status_code != 200:
-        app.logger.warn('Yandex Translate API doesn\'t wanna to respond properly')
+        current_app.logger.warn('Yandex Translate API doesn\'t wanna to respond properly')
         return not_available_msg
 
     error_code = response['code']

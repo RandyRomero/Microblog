@@ -51,7 +51,6 @@ def register(app):
         if os.system('pybabel compile -d app/translations'):
             raise RuntimeError('compile command failed')
 
-
     @translate.command()
     @click.argument('lang')
     def init(lang):

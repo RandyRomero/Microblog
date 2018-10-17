@@ -18,7 +18,8 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     # list of emails that will receive error messages
     ADMINS = ['ololo.rodriguez@gmail.com']
-    POSTS_PER_PAGE = 3
+    POSTS_PER_PAGE = 5
     LANGUAGES = ['en', 'ru']
     YNDX_TRANSLATE_KEY = os.environ.get('YNDX_TRANSLATE_KEY')
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
 

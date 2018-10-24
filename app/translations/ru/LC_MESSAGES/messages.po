@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-02 06:31+0300\n"
+"POT-Creation-Date: 2018-10-24 22:29+0300\n"
 "PO-Revision-Date: 2018-07-31 10:46+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: app/__init__.py:18
+#: app/__init__.py:20
 msgid "Please log in to access this page."
 msgstr "Пожалуйста, залогиньтесь для доступа к этой странице"
 
@@ -47,7 +47,7 @@ msgstr "Извините, перевод между этими языками н
 msgid "[Microblog] Reset your password"
 msgstr "[Microblog] Восстановление пароля"
 
-#: app/auth/forms.py:9 app/auth/forms.py:16 app/main/forms.py:10
+#: app/auth/forms.py:9 app/auth/forms.py:16 app/main/forms.py:11
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -76,7 +76,7 @@ msgstr "Повторить пароль"
 msgid "Register"
 msgstr "зарегистрироваться"
 
-#: app/auth/forms.py:29 app/main/forms.py:22
+#: app/auth/forms.py:29 app/main/forms.py:23
 msgid "Please use a different username."
 msgstr "Пожалуйста, используйте другое имя"
 
@@ -116,56 +116,64 @@ msgstr "Cбросить пароль"
 msgid "Your password has been reset."
 msgstr "Новый пароль сохранён"
 
-#: app/main/forms.py:11
+#: app/main/forms.py:12
 msgid "About me"
 msgstr "Обо мне"
 
-#: app/main/forms.py:12 app/main/forms.py:27
+#: app/main/forms.py:13 app/main/forms.py:28
 msgid "Submit"
 msgstr "Подтвердить"
 
-#: app/main/forms.py:26
+#: app/main/forms.py:27
 msgid "Say something"
 msgstr "Напиши что-нибудь"
 
-#: app/main/routes.py:33
+#: app/main/forms.py:35
+msgid "Seach"
+msgstr "Поиск"
+
+#: app/main/routes.py:34
 msgid "Your post is now live!"
 msgstr "Ваше сообщение опубликовано!"
 
-#: app/main/routes.py:53 app/templates/base.html:27
+#: app/main/routes.py:54 app/templates/base.html:27
 msgid "Explore"
 msgstr "Исследовать"
 
-#: app/main/routes.py:75
+#: app/main/routes.py:76
 msgid "Your changes have been saved."
 msgstr "Изменения сохранены"
 
-#: app/main/routes.py:80
+#: app/main/routes.py:81
 msgid "Edit Profile"
 msgstr "Редактировать профиль"
 
-#: app/main/routes.py:88 app/main/routes.py:104
+#: app/main/routes.py:89 app/main/routes.py:105
 #, python-format
 msgid "User %(username)s not found"
 msgstr "Пользователь %(username)s не найден"
 
-#: app/main/routes.py:91
+#: app/main/routes.py:92
 msgid "You cannot follow yourself!"
 msgstr "Вы не можете подписаться на себя"
 
-#: app/main/routes.py:95
+#: app/main/routes.py:96
 #, python-format
 msgid "You are following %(username)s"
 msgstr "Вы подписались на %(username)s"
 
-#: app/main/routes.py:107
+#: app/main/routes.py:108
 msgid "You cannot hide from yourself"
 msgstr "Нельзя убежать от себя!"
 
-#: app/main/routes.py:111
+#: app/main/routes.py:112
 #, python-format
 msgid "You are not following %(username)s"
 msgstr "Вы отписались от %(username)s"
+
+#: app/main/routes.py:140
+msgid "Search"
+msgstr "Поиск"
 
 #: app/templates/_post.html:14
 #, python-format
@@ -184,15 +192,15 @@ msgstr "Добро пожаловать в Microblog"
 msgid "Home"
 msgstr "Домой"
 
-#: app/templates/base.html:31
+#: app/templates/base.html:38
 msgid "Login"
 msgstr "Войти"
 
-#: app/templates/base.html:33
+#: app/templates/base.html:40
 msgid "Profile"
 msgstr "Профиль"
 
-#: app/templates/base.html:34
+#: app/templates/base.html:41
 msgid "Logout"
 msgstr "Выйти"
 
@@ -212,6 +220,18 @@ msgstr "Новые посты"
 #: app/templates/index.html:22 app/templates/user_page.html:38
 msgid "Older posts"
 msgstr "Старые посты"
+
+#: app/templates/search.html:4
+msgid "Search results"
+msgstr "Результаты поиска"
+
+#: app/templates/search.html:13
+msgid "Previous results"
+msgstr "Назад"
+
+#: app/templates/search.html:19
+msgid "Next results"
+msgstr "Вперёд"
 
 #: app/templates/user_page.html:11
 msgid "Last seen on"
@@ -277,7 +297,7 @@ msgstr "Произошла непредвиденная ошибка"
 
 #: app/templates/errors/500.html:5
 msgid "The administrator has been notified. Sorry for the inconvenience!"
-msgstr "Мы уже работаем над её исправлением. Просим прощения за временное неудобство"
+msgstr "Мы уже работаем над её исправлением. Просим прощения за временное неудобство."
 
 #~ msgid "Home page"
 #~ msgstr "В начало"

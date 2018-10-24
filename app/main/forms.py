@@ -4,6 +4,7 @@ from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Length
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
+from flask import request
 
 
 class EditProfileForm(FlaskForm):
@@ -27,6 +28,24 @@ class PostForm(FlaskForm):
     submit = SubmitField(_l('Submit'))
 
 
+class SearchForm(FlaskForm):
+    """
+    Form that provides to user a tool to search text through posts of users of this Microblog app
+    """
+    q = StringField(_l('Seach'), validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+
+        # Points Flask-WTF at request.args , which is where Flask writes the query string
+        # arguments
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+
+        # For clickable search links to work, CSRF needs to be disabled
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+
+        super(SearchForm, self).__init__(*args, **kwargs)
 
 
 

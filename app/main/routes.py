@@ -116,9 +116,11 @@ def unfollow(username):
 @bp.route('/translate', methods=['POST'])
 @login_required
 def translate_text():
-    # The jsonify() function in flask returns a flask.Response() object that already has the appropriate
-    # content-type header 'application/json' for use with json responses.
-    # The return value from jsonify() is the HTTP response that is going to be sent back to the client.
+    """
+    The jsonify() function in flask returns a flask.Response() object that already has the appropriate
+    content-type header 'application/json' for use with json responses.
+    :return: json which contains text to be translated and id of the post that contains this text
+    """
     return jsonify({'text': translate(request.form['text'],
                                       request.form['postID'])})
 
@@ -126,6 +128,10 @@ def translate_text():
 @bp.route('/search')
 @login_required
 def search():
+    """
+    Handles text search among the posts of Microblog
+    :return: webpage with posts that contain query that user put in search field
+    """
     if not g.search_form.validate():
         current_app.logger.debug('Search form didn\'t validate.')
         current_app.logger.debug(g.search_form.errors)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-30 11:16+0300\n"
+"POT-Creation-Date: 2018-10-30 12:48+0300\n"
 "PO-Revision-Date: 2018-07-31 10:46+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -51,7 +51,7 @@ msgstr "[Microblog] Восстановление пароля"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: app/auth/forms.py:10 app/auth/forms.py:18 app/auth/forms.py:43
+#: app/auth/forms.py:10 app/auth/forms.py:18 app/auth/forms.py:45
 msgid "Password"
 msgstr "Пароль"
 
@@ -63,32 +63,36 @@ msgstr "Запомнить меня"
 msgid "Sign in"
 msgstr "Войти"
 
-#: app/auth/forms.py:17 app/auth/forms.py:38
+#: app/auth/forms.py:17 app/auth/forms.py:40
 msgid "Email"
 msgstr "Email"
 
-#: app/auth/forms.py:19 app/auth/forms.py:44
+#: app/auth/forms.py:19 app/auth/forms.py:46
 msgid "Repeat password"
 msgstr "Повторить пароль"
 
-#: app/auth/forms.py:20 app/auth/routes.py:50
+#: app/auth/forms.py:21
+msgid "Passwords should be equal"
+msgstr "Пароли должны совпадать"
+
+#: app/auth/forms.py:22 app/auth/routes.py:50
 #: app/templates/auth/register.html:5
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: app/auth/forms.py:29 app/main/forms.py:23
+#: app/auth/forms.py:31 app/main/forms.py:23
 msgid "Please use a different username."
 msgstr "Пожалуйста, используйте другое имя"
 
-#: app/auth/forms.py:34
+#: app/auth/forms.py:36
 msgid "Please use another email address."
 msgstr "Пожалуйста, используйте другой почтовый ящик"
 
-#: app/auth/forms.py:39
+#: app/auth/forms.py:41
 msgid "Request password reset."
 msgstr "Запросить сброс пароля"
 
-#: app/auth/forms.py:45
+#: app/auth/forms.py:47
 msgid "Request password reset"
 msgstr "Запросить сброс пароля"
 

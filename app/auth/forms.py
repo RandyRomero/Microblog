@@ -16,7 +16,9 @@ class RegistrationForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
     password = PasswordField(_l('Password'), validators=[DataRequired()])
-    password2 = PasswordField(_l('Repeat password'), validators=[DataRequired(), EqualTo('password')])
+    password2 = PasswordField(_l('Repeat password'),
+                              validators=[DataRequired(),
+                                          EqualTo('password', message=_l('Passwords should be equal'))])
     submit = SubmitField(_l('Register'))
 
     # add additional validation

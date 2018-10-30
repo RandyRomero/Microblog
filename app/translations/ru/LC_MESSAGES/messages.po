@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-24 22:29+0300\n"
+"POT-Creation-Date: 2018-10-30 11:16+0300\n"
 "PO-Revision-Date: 2018-07-31 10:46+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -72,9 +72,9 @@ msgid "Repeat password"
 msgstr "Повторить пароль"
 
 #: app/auth/forms.py:20 app/auth/routes.py:50
-#: app/templates/auth/register.html:4
+#: app/templates/auth/register.html:5
 msgid "Register"
-msgstr "зарегистрироваться"
+msgstr "Зарегистрироваться"
 
 #: app/auth/forms.py:29 app/main/forms.py:23
 msgid "Please use a different username."
@@ -171,7 +171,7 @@ msgstr "Нельзя убежать от себя!"
 msgid "You are not following %(username)s"
 msgstr "Вы отписались от %(username)s"
 
-#: app/main/routes.py:140
+#: app/main/routes.py:146
 msgid "Search"
 msgstr "Поиск"
 
@@ -297,7 +297,9 @@ msgstr "Произошла непредвиденная ошибка"
 
 #: app/templates/errors/500.html:5
 msgid "The administrator has been notified. Sorry for the inconvenience!"
-msgstr "Мы уже работаем над её исправлением. Просим прощения за временное неудобство."
+msgstr ""
+"Мы уже работаем над её исправлением. Просим прощения за временное "
+"неудобство."
 
 #~ msgid "Home page"
 #~ msgstr "В начало"

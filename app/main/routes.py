@@ -17,6 +17,7 @@ def before_request():
         db.session.commit()
         g.search_form = SearchForm()
     g.locale = str(get_locale())
+    # current_app.logger.debug(f'Locale of {current_user.username} is {g.locale}')
 
 
 @bp.route('/', methods=['GET', 'POST'])

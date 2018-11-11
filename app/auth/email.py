@@ -4,9 +4,10 @@
 Module that forms emails for the user
 """
 
-from flask import render_template
+from flask import render_template, current_app
 from flask_babel import _
 from app.email import send_email
+from flask_babel import get_locale
 
 
 def send_password_reset_email(user):
@@ -28,7 +29,12 @@ def send_greeting_email(user):
     :param user: User class from database, particular user who signed up
     :return: None
     """
+    locale = str(get_locale())
+
+    text_body = 'email/greeting_email_ru.txt' if locale == 'ru' else 'email/greeting_email_en.txt'
+    html_body = 'email/greeting_email_ru.html' if locale == 'ru' else 'email/greeting_email_en.html'
+
     send_email(_('[Microblog] Welcome!'), recipients=[user.email],
-               text_body=render_template('email/greeting_email.txt', user=user),
-               html_body=render_template('email/greeting_email.html', user=user)
+               text_body=render_template(text_body, user=user),
+               html_body=render_template(html_body, user=user)
                )

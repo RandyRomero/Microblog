@@ -1,0 +1,4 @@
+Thanks for signing up for Microblog, {{ user.username }}!
+
+Sincerely,
+The Microblog Team

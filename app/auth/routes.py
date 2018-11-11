@@ -6,7 +6,7 @@ from app import db
 from app.auth import bp
 from app.auth.forms import LoginForm, RegistrationForm, ResetPasswordForm, ResetPasswordRequestForm
 from app.models import User
-from app.auth.email import send_password_reset_email
+from app.auth.email import send_password_reset_email, send_greeting_email
 
 
 @bp.route('/login', methods=['GET', 'POST'])
@@ -46,6 +46,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash(_('Congratulations, you are now a registered user!'))
+        send_greeting_email(user)
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title=_('Register'), form=form)
 

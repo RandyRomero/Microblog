@@ -66,6 +66,8 @@
     {{ moment.include_moment() }}
     {{ moment.lang(g.locale) }}
 
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popup_panel_handler.js') }}"></script>
+
     {# if we are gonna render posts - include this srcipt to provide translation functionality #}
     {% if posts is defined %}
         <script type="text/javascript">

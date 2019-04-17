@@ -2,7 +2,7 @@
 // The Image() constructor creates a new HTMLImageElement instance.
 // It is functionally equivalent to document.createElement('img').
 let loading_gif = new Image();
-loading_gif.src = '{{ url_for('static', filename='loading.gif') }}';
+loading_gif.src = "{{ url_for('static', filename='loading.gif') }}";
 
 // to store text of post before it was translated to be able to get it back later
 originalPosts = {};
@@ -27,11 +27,11 @@ function translate(destElem, postID, button) {
         $(destElem).after(promotion_link);
 
         // Change button to show user that he can get back original text of post
-        button.text('{{ _('Original text')}}' );
+        button.text("{{ _('Original text')}}" );
 
         // Get rid of focus state
         button.blur();
-    }).fail(() => { $(destElem).text('{{ _('Sorry, translations service is not available now.') }}');
+    }).fail(() => { $(destElem).text("{{ _('Sorry, translations service is not available now.') }}");
     });
 }
 
@@ -44,7 +44,7 @@ function getOrigTextBack(postID, destElem, button) {
     destElem.text(originalPosts[postID]);
 
     // get button back how it looked like
-    button.text('{{ _('Translate') }}');
+    button.text("{{ _('Translate') }}");
     button.blur();
 }
 
@@ -59,7 +59,7 @@ function postClickHandler(event) {
 
     // Choose between translating post and getting it back how it was before translation.
     // If text of a button says Original text - get it back, otherwise - translate.
-    if ($(event.target).text() === '{{ _('Original text') }}') {
+    if ($(event.target).text() === "{{ _('Original text') }}") {
         getOrigTextBack(postID, destElem, $(event.target));
     } else {
         translate(destElem, postID, $(event.target));

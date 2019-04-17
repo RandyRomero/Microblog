@@ -15,7 +15,7 @@
             {% endset %}
             {{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow()) }}
             <p>{{ post.body }}</p>
-        <!-- g.locale is language of user who sees the post -->
+        {#  g.locale is language of user who sees the post #}
             {%  if post.language != g.locale %}
                 <a class="translation" data-lang="{{ post.language }}" href="#">{{ _('Translate') }}</a>
             {% endif %}
